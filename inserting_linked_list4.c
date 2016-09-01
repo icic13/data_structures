@@ -64,13 +64,20 @@ void print_list(struct node *pointer)
 {
     while(pointer!=NULL)
     {
-        printf(" %d \n",pointer->data);
+        printf(" %d ",pointer->data);
         pointer  = pointer->next;
     }
 
 }
 
+void print_revserse(struct node* head){
+    if(head==NULL)
+        return;
 
+    print_revserse(head->next);
+    printf(" %d ",head->data);
+
+}
 int main()
 {
     //create an empty linked list
@@ -83,6 +90,8 @@ int main()
     append(&head,4);
     insert_after(head->next,8);
     print_list(head);
+    printf("\n");
+    print_revserse(head);
 
 
 }
